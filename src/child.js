@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Button } from 'semantic-ui-react'
 export default class ChildApp extends Component {
     render() {
         return (
@@ -8,6 +8,7 @@ export default class ChildApp extends Component {
             <div>
                 {this.props.simple}
             </div>
+            <Button>Click Here</Button>
             </div>
     );
 }
