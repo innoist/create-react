@@ -8,6 +8,14 @@ export default class ChildApp extends Component {
             <div>
                 {this.props.simple}
             </div>
+            <div class="button demo">
+  <div class="ui button">
+    View
+  </div>
+  <div class="ui primary button">
+    <i class="shop icon"></i> Add to Cart
+  </div>
+  </div>
             <Button>Click Here</Button>
             </div>
     );
