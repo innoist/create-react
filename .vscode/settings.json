@@ -1,0 +1,25 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "search.exclude": {
+    "**/.git": true,
+    "**/.chrome": true,
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/coverage": true,
+    "**/coverage-cache": true,
+    "**/.nyc_output": true,
+    "**/tmp": true
+  },
+
+  // Settings for Prettier
+  // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+  "editor.formatOnSave": true,
+  // Enable/disable default JavaScript formatter (For Prettier)
+  "javascript.format.enable": false,
+  // Use 'prettier-eslint' instead of 'prettier'. Other settings will only be fallbacks in case they could not be inferred from eslint rules.
+  "prettier.eslintIntegration": true,
+  // If true, will use single instead of double quotes
+  "prettier.singleQuote": true,
+  // Fit code within this line limit
+  "prettier.printWidth": 120
+}
