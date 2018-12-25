@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.2.1",
+    "pretty-quick": "^1.8.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -13,6 +16,7 @@
     "semantic-ui-react": "^0.84.0"
   },
   "scripts": {
+    "precommit": "pretty-quick --staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
