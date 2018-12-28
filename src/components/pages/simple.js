@@ -3,13 +3,13 @@ import { Button } from "semantic-ui-react";
 export default class ChildApp extends Component {
   render() {
     return (
-      <div>
+      <div className="simple">
         hellow world
         <div>{this.props.simple}</div>
-        <div class="button demo">
-          <div class="ui button">View</div>
-          <div class="ui primary button">
-            <i class="shop icon" /> Add to Cart
+        <div className="button demo">
+          <div className="ui button">View</div>
+          <div className="ui primary button">
+            <i className="shop icon" /> Add to Cart
           </div>
         </div>
         <Button>Click Here</Button>
