@@ -1,17 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
-import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
 import { Provider } from "react-redux";
 import configureStore from "./store";
+import { Router } from "react-router-dom";
+import Routes from "./routes";
+import createBrowserHistory from "history/createBrowserHistory";
 
 const rootEl = document.getElementById("root");
 const store = configureStore();
+const history = createBrowserHistory();
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <Routes dispatch={store.dispatch} />
+    </Router>
   </Provider>,
   rootEl
 );
@@ -21,11 +27,13 @@ ReactDOM.render(
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
 if (module.hot) {
-  module.hot.accept("./App", () => {
-    const NextApp = require("./App").default;
+  module.hot.accept("./routes", () => {
+    const NextApp = require("./routes").default;
     ReactDOM.render(
       <Provider store={store}>
-        <NextApp />
+        <Router history={history}>
+          <NextApp dispatch={store.dispatch} />
+        </Router>
       </Provider>,
       rootEl
     );

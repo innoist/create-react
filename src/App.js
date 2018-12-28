@@ -6,7 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <SimplePage />
+        /Simple will bring the page as controlled by router
       </div>
     );
   }
