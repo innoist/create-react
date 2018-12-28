@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { simpleAction } from "../actions/simpleAction";
 import ChildApp from "../components/pages/simple";
 import logo from "../images/logo.svg";
+// import "../styles/simple/simple.css";
 class simplePage extends Component {
   simpleAction = event => {
     this.props.simpleAction();

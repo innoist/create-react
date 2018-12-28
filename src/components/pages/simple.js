@@ -3,7 +3,7 @@ import { Button } from "semantic-ui-react";
 export default class ChildApp extends Component {
   render() {
     return (
-      <div>
+      <div className="simple">
         hellow world
         <div>{this.props.simple}</div>
         <div className="button demo">
