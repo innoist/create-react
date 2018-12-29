@@ -1,13 +1,28 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// function Example() {
-//   // Declare a new state variable, which we'll call "count"
-//   const [count, setCount] = useState(0);
+export default function hasMediaPermission(props) {
+  const [hasPermission, setPrmission] = useState(false);
 
-//   return (
-//     <div>
-//       <p>You clicked {count} times</p>
-//       <button onClick={() => setCount(count + 1)}>Click me</button>
-//     </div>
-//   );
-// }
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    const constraints = { audio: true, video: true };
+    const getUserMedia = params =>
+      new Promise((successCallback, errorCallback) => {
+        navigator.webkitGetUserMedia.call(
+          navigator,
+          params,
+          successCallback,
+          errorCallback
+        );
+      });
+    getUserMedia(constraints)
+      .then(stream => {
+        if (!hasPermission) setPrmission(true);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+
+  return hasPermission;
+}

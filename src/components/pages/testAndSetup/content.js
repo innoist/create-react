@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Container } from "semantic-ui-react";
+import checkMediaPermission from "../../../businessLogic/checkMediaPermission";
 // export default class Content extends Component {
 //   state = {
 //     count: 1
@@ -23,7 +24,7 @@ export default function content(props) {
   };
   console.log("props", props);
   const [count, setCount] = useState(1);
-
+  const hasPermission = checkMediaPermission();
   return (
     <Container>
       {count}
@@ -37,6 +38,7 @@ export default function content(props) {
       >
         Redux Button {props.simple}
       </Button>
+      <div>Your permission is : {hasPermission.toString()}</div>
     </Container>
   );
 }
