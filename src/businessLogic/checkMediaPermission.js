@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function hasMediaPermission(props) {
-  const [hasPermission, setPrmission] = useState(false);
+  const [hasPermission, setPermission] = useState(false);
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function hasMediaPermission(props) {
       });
     getUserMedia(constraints)
       .then(stream => {
-        if (!hasPermission) setPrmission(true);
+        if (!hasPermission) setPermission(true);
       })
       .catch(err => {
         console.log(err);

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Button, Container } from "semantic-ui-react";
-import checkMediaPermission from "../../../businessLogic/checkMediaPermission";
+import { Button, Container, Image } from "semantic-ui-react";
+import HasMediaPermission from "../../../businessLogic/hasMediaPermission";
+import videoCamera from "../../../images/videoCamera.svg";
+
 // export default class Content extends Component {
 //   state = {
 //     count: 1
@@ -22,9 +24,12 @@ export default function content(props) {
   let simpleAction = event => {
     props.simpleAction();
   };
+
   console.log("props", props);
   const [count, setCount] = useState(1);
-  const hasPermission = checkMediaPermission();
+  var camAndMicPermissionToAsk = "";
+  const ImageExampleImage = () => <Image src={videoCamera} size="small" />;
+
   return (
     <Container>
       {count}
@@ -38,7 +43,8 @@ export default function content(props) {
       >
         Redux Button {props.simple}
       </Button>
-      <div>Your permission is : {hasPermission.toString()}</div>
+
+      <HasMediaPermission />
     </Container>
   );
 }
