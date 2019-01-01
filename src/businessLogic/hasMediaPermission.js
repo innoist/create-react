@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { CamAndMicPermissions } from "./enums";
-import { Button, Container, Image } from "semantic-ui-react";
+import { Button, Container, Image, Progress } from "semantic-ui-react";
+import hark from "hark";
+
 import videoCamera from "../images/videoCamera.svg";
 
 export default function hasMediaPermission(props) {
   const [micPermission, setMicrophonePermission] = useState("");
   const [camPermission, setCameraPermission] = useState("");
+  const [stream, setStream] = useState(null);
 
+  const [micLevel, setMicLevel] = useState(0);
   useEffect(() => {
     console.log("Permissionssss");
     navigator.permissions
@@ -47,7 +51,21 @@ export default function hasMediaPermission(props) {
         const video = document.querySelector("video");
         const vendorURL = window.URL || window.webkitURL;
 
+        var options = {};
         video.srcObject = stream;
+        setStream(stream);
+        var speechEvents = hark(stream, options);
+        speechEvents.on("speaking", function() {
+          console.log("speaking");
+        });
+
+        speechEvents.on("stopped_speaking", function() {
+          console.log("stopped_speaking");
+        });
+        speechEvents.on("volume_change", function(e, d) {
+          console.log("volume_change ", e, d);
+          setMicLevel(50 + e);
+        });
         video.play();
       })
       .catch(err => {
@@ -79,6 +97,7 @@ export default function hasMediaPermission(props) {
       <div>Microphone Allow : {micPermission.toString()}</div>
       {HTMLToRender}
       <video id="video" />
+      <Progress percent={micLevel} />
     </div>
   );
 }
