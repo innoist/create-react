@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Container, Image } from "semantic-ui-react";
 import HasMediaPermission from "../../../businessLogic/hasMediaPermission";
+import Device from "../../../businessLogic/devices";
+
 import videoCamera from "../../../images/videoCamera.svg";
 
 // export default class Content extends Component {
@@ -45,6 +47,7 @@ export default function content(props) {
       </Button>
 
       <HasMediaPermission />
+      <Device />
     </Container>
   );
 }
