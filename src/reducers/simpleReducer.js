@@ -3,7 +3,7 @@ export default (state = {}, action) => {
     case "SIMPLE_ACTION":
       let old = state.result || 0;
       return {
-        result: action.payload + old
+        result: action.data + old
       };
     default:
       return state;

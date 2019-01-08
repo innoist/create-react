@@ -5,23 +5,6 @@ import Device from "../../../businessLogic/devices";
 
 import videoCamera from "../../../images/videoCamera.svg";
 
-// export default class Content extends Component {
-//   state = {
-//     count: 1
-//   };
-//   render() {
-//     return (
-//       <Container>
-//         {this.state.count}
-//         <br />
-//         <Button onClick={() => this.setState({ count: this.state.count + 1 })}>
-//           Click Here ssadcls
-//         </Button>
-//       </Container>
-//     );
-//   }
-// }
-
 export default function content(props) {
   let simpleAction = event => {
     props.simpleAction();
